@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Routes from './components/routes/Routes';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+
+  const [isAuthenticated, setAuthenticated] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/users">Users</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/contact">Contact Us</Link>
+        <Link to="/help">Help</Link>
+      </div>
+      <Routes isAuthenticated={isAuthenticated} setAuthenticated={setAuthenticated} />
     </div>
   );
 }
